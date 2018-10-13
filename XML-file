@@ -1,0 +1,33 @@
+<document>
+ <work>
+  <answer/>
+  <wait>2</wait>
+  <speak lang="en-US">
+   Please leave a message.
+  </speak>
+<speak input-timeout='20000'>
+  Please enter your Account Number.
+  <bind action='https://anyurl'>~[0-9]{4,10}</bind>
+</speak>
+  <record name='example1' />
+  <wait>60</wait>
+  <speak input-timeout='200'>
+    Would you like to transfer funds?  Press 1 for Yes or Press 2 for No.
+      <bind action="http://www.mydomain.com/get_digits.php?bind=1">1</bind>
+        <bind action="http://www.mydomain.com/get_digits.php?bind=2">2</bind>
+  <speak input-timeout='200'>
+    Press 1 for checking to savings or press 2 for savings to checking.
+      <bind action="http://www.mydomain.com/get_digits.php?bind=1">1</bind>
+        <bind action="http://www.mydomain.com/get_digits.php?bind=2">2</bind>
+  <speak input-timeout='200'>
+    Please press a number transaction.
+      <bind action="http://www.mydomain.com/get_digits.php?bind=other">~[0-9]</bind>
+  <speak input-timeout='200'>
+    You are transferring {transaction number}.  Press 1 if it correct or press 2 if it is incorrect.
+        <bind action="http://www.mydomain.com/get_digits.php?bind=1">1</bind>
+          <bind action="http://www.mydomain.com/get_digits.php?bind=2">2</bind>
+  <speak input-timeout='200'>
+    Transaction has been completed.  Thank you for your transaction.  Good bye.
+  <hangup/>
+ </work>
+</document>
