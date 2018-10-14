@@ -1,4 +1,4 @@
-f step=1 and len(dialed_digits)=4:
+if step=1 and len(dialed_digits)=4:
  Return
 <document>
  <variables>
