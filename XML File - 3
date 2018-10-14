@@ -1,0 +1,98 @@
+f step=1 and len(dialed_digits)=4:
+ Return
+<document>
+ <variables>
+   <step>2</step>
+ </variables>
+ <work>
+   <answer/>
+   <wait>2</wait>
+   <speak input-timeout='20000'>
+     Would you like to transfer funds?  Press 1 for Yes or Press 2 for No.
+     <bind action="https://voip-6f95e.firebaseio.com/">1</bind>
+     <bind action="https://voip-6f95e.firebaseio.com/">2</bind>
+   </speak>
+ </work>
+</document>
+
+elseif step=2 and len(dialed_digits)=1:
+   Return
+<document>
+ <variables>
+   <step>3</step>
+ </variables>
+ <work>
+   <answer/>
+   <wait>2</wait>
+   <speak input-timeout='20000'>
+     Press 1 for checking to savings.  Press 2 for savings to checking.
+     <bind action="https://voip-6f95e.firebaseio.com/">1</bind>
+     <bind action="https://voip-6f95e.firebaseio.com/">2</bind>
+   </speak>
+ </work>
+</document>
+
+elseif step=3 and len(dialed_digits)=1:
+ Return
+<document>
+ <variables>
+   <step>4</step>
+ </variables>
+ <work>
+   <answer/>
+   <wait>2</wait>
+   <speak input-timeout='20000'>
+     Please press a number transaction.  The * represents the cents.
+     <bind action="https://voip-6f95e.firebaseio.com/">~[0-9]</bind>
+   </speak>
+ </work>
+</document>
+
+elseif step=4 and len(dialed_digits)=1:
+ Return
+<document>
+ <variables>
+   <step>5</step>
+ </variables>
+ <work>
+   <answer/>
+   <wait>2</wait>
+   <speak input-timeout='200'>
+     Are you sure?  Press # to confirm or wait to change the transaction.
+     <bind action="https://voip-6f95e.firebaseio.com/">*</bind>
+   </speak>
+ </work>
+</document>
+
+elseif step=5 and len(dialed_digits)=1:
+
+<document>
+ <variables>
+   <step>5</step>
+ </variables>
+ <work>
+   <answer/>
+   <wait>2</wait>
+   <speak input-timeout='200'>
+     Transaction has been completed.  Thank you for your transaction.  Good bye.
+   </speak>
+   <hangup/>
+ </work>
+</document>
+
+
+else Return
+
+<document>
+ <variables>
+   <step>1</step>
+ </variables>
+ <work>
+   <answer/>
+   <wait>2</wait>
+   <speak input-timeout='20000'>
+     Please enter your Account Number.
+     <bind action="https://voip-6f95e.firebaseio.com/">~[0-9]{4,10}</bind>
+   </speak>
+ </work>
+</document>
