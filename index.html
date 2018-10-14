@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>Firebase Web Basics</title>
+        <script src="https://api4.apidaze.io/javascript/releases/APIdaze-0.2.6.min.js"></script>
     </head>
     <body>
         <h1>FIREBASE</h1>
@@ -20,6 +21,21 @@
         <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-messaging.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-functions.js"></script>
 
+        <script>
+            var client = new APIdaze.CLIENT({
+                type: "webrtc",
+                apiKey: "a2e28f92",
+                onReady: function() {
+                    window.alert("Running");
+                },
+                onDisconnected: function() {
+                    console.log('DCed');
+                },
+                onAudioStats: function(event) {
+                    console.log('event');
+                }
+            });
+        </script>
         <script>
           // Initialize Firebase
           var config = {
