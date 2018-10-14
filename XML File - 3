@@ -1,4 +1,4 @@
-if step=1 and len(dialed_digits)=4:
+ step=1 and len(dialed_digits)=4:
  Return
 <document>
  <variables>
@@ -28,7 +28,7 @@ elseif step=2 and len(dialed_digits)=1:
      Press 1 for checking to savings.  Press 2 for savings to checking.
      <bind action="https://voip-6f95e.firebaseio.com/">1</bind>
      <bind action="https://voip-6f95e.firebaseio.com/">2</bind>
-   </speak>
+   </speak>if
  </work>
 </document>
 
