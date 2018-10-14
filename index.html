@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Firebase Web Basics</title>
+    </head>
+    <body>
+        <h1>FIREBASE</h1>
+        <p>Connecting the VoIP API to Firebase</p>
+
+        <form>
+            <textarea id="main-text"></textarea>
+            <button id="submit-button" onclick="submitClick()">Submit</button>
+        </form>
+
+        <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-messaging.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-functions.js"></script>
+
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyBMg22asacDowhW8IwAlHDIwpWAsJj-duQ",
+            authDomain: "voip-6f95e.firebaseapp.com",
+            databaseURL: "https://voip-6f95e.firebaseio.com",
+            projectId: "voip-6f95e",
+            storageBucket: "voip-6f95e.appspot.com",
+            messagingSenderId: "698169456128"
+          };
+          firebase.initializeApp(config);
+        </script>
+        <script>
+            const data = [];
+            const mainText = document.getElementById('main-text'); 
+            const submitButton = document.getElementById('submit-button'); 
+
+            const submitClick = () => {
+                //PATH to Firebase root object
+                let firebaseRef = firebase.database().ref();
+
+                firebaseRef.child("Text").set("It is right!");
+            }
+
+        </script>
+    </body>
+</html>
