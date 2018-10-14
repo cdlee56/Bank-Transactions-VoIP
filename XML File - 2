@@ -2,9 +2,6 @@
  <work>
   <answer/>
   <wait>2</wait>
-  <speak lang="en-US">
-   Please leave a message.
-  </speak>
 <speak input-timeout='20000'>
   Please enter your Account Number.
   <bind action="https://voip-6f95e.firebaseio.com/">~[0-9]{4,10}</bind>
